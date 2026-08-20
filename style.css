@@ -7,18 +7,37 @@
 .cabecalho {
     padding: 15px 25px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background-color: rgb(199, 13, 13);
+    background-color: rgb(240, 7, 135);
+    position: relative;
+}
+.cabecalho nav {
+    position: absolute;
+    right: 25px;
+}
+.botao-inicio {
+    background-color: white;
+    color: #f00087;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
 }
 
 .cartao{
     width: 260px;
-    height: 200px;
+    height: 260px;
+    perspective: 1000px;
 }
 
 .cartao-imagem {
     width: 100%;
+    max-height: 140px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 8px;
 }
 
 body {
@@ -35,6 +54,9 @@ main {
     align-items: center;
 }
 
+main h2 {
+    margin-bottom: 20px;
+}
 .cabecalho-link{
     color: white;
     text-decoration: none;
@@ -46,12 +68,14 @@ h1 {
 }
 
 footer{
-    background-color: rgb(7, 240, 228);
+    background-color: rgb(240, 7, 135);
     padding: 15px 25px;
 }
 
 .cartao-interno {
     position: relative;
+    width: 100%;
+    height: 100%;
     transition: 0.8s;
     transform-style: preserve-3d;
 }
@@ -59,15 +83,42 @@ footer{
     transform: rotateY(180deg);
 
 }
-.cartao-frente, .cartao-verso {
+.cartao-frente,
+.cartao-verso {
     position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+}
+.cartao-frente {
+    transform: rotateY(0deg);
 }
 .cartao-verso{
     transform: rotateY(180deg);
 }
+
 section{
-    display:flex;
+    display: grid;
+    grid-template-columns: repeat(4, 260px);
+    gap: 20px;
+}
+
+footer {
+    background-color: (240, 7, 135);
+    padding: 15px 25px;
+    text-align: center;
+}
     gap:16px;
 }
